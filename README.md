@@ -133,3 +133,5 @@ Response:
 ## 👤 Author
 
 [**Prigeesh**](https://github.com/Sai-guru)
+
+Arch Linux | TypeScript | Next.js | Groq
