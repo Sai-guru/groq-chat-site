@@ -2,11 +2,16 @@ import express from "express";
 import type { Request, Response } from "express";
 import { getGroqChatResponse } from "./ai.js";
 
-const router = express.Router();
+import type { Router } from "express";
+
+const router: Router = express.Router();
 
 router.post("/chat", async (req: Request, res: Response) => {
     const { userInput } = req.body;
-   if(!userInput) res.status(400).json({ error: "userInput is required" });
+   if(!userInput) {
+    return res.status(400).json({ error: "userInput is required" });
+   }
+   
     try {
         const aiResponse = await getGroqChatResponse(userInput);
         res.json({ message:  aiResponse });
